@@ -32,40 +32,16 @@ public class Question {
         return imageId;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
-    }
-
     public int getQuestionTextId() {
         return questionTextId;
-    }
-
-    public void setQuestionTextId(int questionTextId) {
-        this.questionTextId = questionTextId;
     }
 
     public int getHintTextId() {
         return hintTextId;
     }
 
-    public void setHintTextId(int hintTextId) {
-        this.hintTextId = hintTextId;
-    }
-
     public ArrayList<Integer> getAnswersIds() {
         return answersIds;
-    }
-
-    public void setAnswersIds(ArrayList<Integer> answersIds) {
-        this.answersIds = answersIds;
-    }
-
-    public int getCorrectAnswerId() {
-        return correctAnswerId;
-    }
-
-    public void setCorrectAnswerId(int correctAnswerId) {
-        this.correctAnswerId = correctAnswerId;
     }
 
     public boolean checkAnswer(int answerId) {

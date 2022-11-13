@@ -1,37 +1,53 @@
 package com.example.myquizapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EndActivity extends AppCompatActivity {
-    TextView scoreTextView;
+import com.example.myquizapp.databinding.ActivityEndBinding;
 
-    Button closeAppButton;
+public class EndActivity extends AppCompatActivity {
+    ActivityEndBinding activityEndBinding;
 
     private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_end);
 
+//        bind activity
+        activityEndBinding = ActivityEndBinding.inflate(getLayoutInflater());
+
+        setContentView(activityEndBinding.getRoot());
+
+        Log.e("test_create", "create");
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.e("test_start", "start1");
+
+//        read and set saved data
         Bundle data = getIntent().getExtras();
 
         if (data != null) {
-            score = data.getInt("score");
+            score = data.getInt("score", 0);
         }
 
-        scoreTextView = findViewById(R.id.score_text_view);
+        Log.e("test_start", "start2");
 
-        closeAppButton = findViewById(R.id.close_button);
+        activityEndBinding.scoreTextView.setText("Score: " + Integer.toString(score));
 
-        scoreTextView.setText("Score: " + Integer.toString(score));
+        Log.e("test_start", "start3");
 
-        closeAppButton.setOnClickListener(view -> {
-            finish();
+        activityEndBinding.closeButton.setOnClickListener(view -> {
+            Intent mainIntent = new Intent(EndActivity.this, MainActivity.class);
+
+            startActivity(mainIntent);
         });
     }
 }

@@ -2,15 +2,13 @@ package com.example.myquizapp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class HintActivity extends AppCompatActivity {
-    TextView hintTextView;
+import com.example.myquizapp.databinding.ActivityHintBinding;
 
-    Button returnButton;
+public class HintActivity extends AppCompatActivity {
+    ActivityHintBinding activityHintBinding;
 
     private int hintTextId;
     private int questionIndex;
@@ -18,8 +16,18 @@ public class HintActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hint);
 
+//        bind activity
+        activityHintBinding = ActivityHintBinding.inflate(getLayoutInflater());
+
+        setContentView(activityHintBinding.getRoot());
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        //        read and set saved data
         Bundle data = getIntent().getExtras();
 
         if (data != null) {
@@ -27,19 +35,15 @@ public class HintActivity extends AppCompatActivity {
             questionIndex = data.getInt("question_index");
         }
 
-        hintTextView = findViewById(R.id.hint_text);
+        activityHintBinding.hintText.setText(hintTextId);
 
-        returnButton = findViewById(R.id.return_to_questions_button);
 
-        hintTextView.setText(hintTextId);
-
-        returnButton.setOnClickListener(view -> {
+        activityHintBinding.returnToQuestionsButton.setOnClickListener(view -> {
             Intent mainIntent = new Intent(HintActivity.this, MainActivity.class);
+
             mainIntent.putExtra("question_index", questionIndex);
 
-            int resCode = 0;
-
-            startActivityForResult(mainIntent, resCode);
+            startActivity(mainIntent);
         });
     }
 }
