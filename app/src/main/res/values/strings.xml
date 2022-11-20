@@ -2,12 +2,21 @@
     <string name="app_name">MyQuizApp</string>
     <string name="answer_button_text">Answer</string>
     <string name="hint_button_text">Hint</string>
+
     <string name="logo_content_desc">java_logo</string>
+
     <string name="first_question_text">What language?</string>
     <string name="first_question_hint">Google</string>
     <string name="first_question_answer_a">Go</string>
     <string name="first_question_answer_b">Rust</string>
     <string name="first_question_answer_c">Java</string>
+
+    <string name="second_question_text">test</string>
+    <string name="second_question_hint">test</string>
+    <string name="second_question_answer_a">test</string>
+    <string name="second_question_answer_b">test</string>
+    <string name="second_question_answer_c">test</string>
+
     <string name="return_button_text">Return</string>
     <string name="close_button_text">Close</string>
 </resources>

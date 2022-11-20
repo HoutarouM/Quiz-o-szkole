@@ -3,6 +3,7 @@ package com.example.myquizapp;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myquizapp.databinding.ActivityMainBinding;
@@ -32,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(activityMainBinding.getRoot());
 
 
+//        get save data
+        if (savedInstanceState != null) {
+            questionIndex = savedInstanceState.getInt("question_index", 0);
+            score = savedInstanceState.getInt("score", 0);
+            answerId = savedInstanceState.getInt("answer_id", 0);
+        }
+
+
 //        intents initialization
         hintIntent = new Intent(MainActivity.this, HintActivity.class);
         endIntent = new Intent(MainActivity.this, EndActivity.class);
@@ -41,10 +50,10 @@ public class MainActivity extends AppCompatActivity {
         addQuestion(R.drawable.dog, R.string.first_question_text, R.string.first_question_hint,
                 R.string.first_question_answer_a, R.string.first_question_answer_b, R.string.first_question_answer_c, 0);
 
-        addQuestion(R.drawable.dog2, R.string.first_question_text, R.string.first_question_hint,
-                R.string.first_question_answer_a, R.string.first_question_answer_b, R.string.first_question_answer_c, 0);
+        addQuestion(R.drawable.dog, R.string.second_question_text, R.string.second_question_hint,
+                R.string.second_question_answer_a, R.string.second_question_answer_b, R.string.second_question_answer_c, 0);
 
-        addQuestion(R.drawable.dog3, R.string.first_question_text, R.string.first_question_hint,
+        addQuestion(R.drawable.dog, R.string.first_question_text, R.string.first_question_hint,
                 R.string.first_question_answer_a, R.string.first_question_answer_b, R.string.first_question_answer_c, 0);
     }
 
@@ -62,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         setDataToViews(questions.get(questionIndex));
 
 //        change question on click
-        activityMainBinding.answerButton.setOnClickListener(view -> {
+        activityMainBinding.answerBtn.setOnClickListener(view -> {
             answerId = getAnswerIdByButton(activityMainBinding.radioGroup.getCheckedRadioButtonId());
 
 //            increment score if answer is right
@@ -85,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        activityMainBinding.hintButton.setOnClickListener(view -> {
+        activityMainBinding.hintBtn.setOnClickListener(view -> {
             hintIntent.putExtra("hint_text_id", questions.get(questionIndex).getHintTextId());
             hintIntent.putExtra("question_index", questionIndex);
 
@@ -93,15 +102,24 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("question_index", questionIndex);
+        outState.putInt("score", score);
+        outState.putInt("answer_id", answerId);
+    }
+
     private void setDataToViews(Question q) {
         //        set data to views
-        activityMainBinding.logoImageView.setImageResource(q.getImageId());
+        activityMainBinding.imageView.setImageResource(q.getImageId());
 
         activityMainBinding.questionTextView.setText(q.getQuestionTextId());
 
-        activityMainBinding.firstRadioButton.setText(q.getAnswersIds().get(0));
-        activityMainBinding.secondRadioButton.setText(q.getAnswersIds().get(1));
-        activityMainBinding.thirdRadioButton.setText(q.getAnswersIds().get(2));
+        activityMainBinding.firstRadioBtn.setText(q.getAnswersIds().get(0));
+        activityMainBinding.secondRadioBtn.setText(q.getAnswersIds().get(1));
+        activityMainBinding.thirdRadioBtn.setText(q.getAnswersIds().get(2));
     }
 
     private void addQuestion(int imageId, int questionTextId, int questionHintId, int answAId, int answBId, int answCId, int correctAnswId) {
@@ -111,8 +129,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private int getAnswerIdByButton(int buttonId) {
-        if (activityMainBinding.firstRadioButton.getId() == buttonId) return 0;
-        else if (activityMainBinding.secondRadioButton.getId() == buttonId) return 1;
+        if (activityMainBinding.firstRadioBtn.getId() == buttonId) return 0;
+        else if (activityMainBinding.secondRadioBtn.getId() == buttonId) return 1;
         else return 2;
     }
 }
