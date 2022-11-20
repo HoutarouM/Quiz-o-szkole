@@ -1,5 +1,9 @@
 package com.example.myquizapp;
 
+import static com.example.myquizapp.PutKeys.PUT_HINT_ID_KEY;
+import static com.example.myquizapp.PutKeys.PUT_QUESTION_INDEX_KEY;
+import static com.example.myquizapp.PutKeys.PUT_SCORE_KEY;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -28,13 +32,13 @@ public class HintActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        //        read and set saved data
+//        read and set saved data
         Bundle data = getIntent().getExtras();
 
         if (data != null) {
-            hintTextId = data.getInt("hint_text_id", 0);
-            questionIndex = data.getInt("question_index", 0);
-            score = data.getInt("score", 0);
+            hintTextId = data.getInt(PUT_HINT_ID_KEY, 0);
+            questionIndex = data.getInt(PUT_QUESTION_INDEX_KEY, 0);
+            score = data.getInt(PUT_SCORE_KEY, 0);
         }
 
         activityHintBinding.hintText.setText(hintTextId);
@@ -43,8 +47,8 @@ public class HintActivity extends AppCompatActivity {
         activityHintBinding.returnToQuestionsButton.setOnClickListener(view -> {
             Intent mainIntent = new Intent(HintActivity.this, MainActivity.class);
 
-            mainIntent.putExtra("question_index", questionIndex);
-            mainIntent.putExtra("score", score);
+            mainIntent.putExtra(PUT_QUESTION_INDEX_KEY, questionIndex);
+            mainIntent.putExtra(PUT_SCORE_KEY, score);
 
             startActivity(mainIntent);
         });

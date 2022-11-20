@@ -1,5 +1,10 @@
 package com.example.myquizapp;
 
+import static com.example.myquizapp.PutKeys.PUT_ANSWER_ID_KEY;
+import static com.example.myquizapp.PutKeys.PUT_HINT_ID_KEY;
+import static com.example.myquizapp.PutKeys.PUT_QUESTION_INDEX_KEY;
+import static com.example.myquizapp.PutKeys.PUT_SCORE_KEY;
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -35,16 +40,15 @@ public class MainActivity extends AppCompatActivity {
 
 //        read and set saved data
         if (savedInstanceState != null) {
-            questionIndex = savedInstanceState.getInt("question_index", 0);
-            score = savedInstanceState.getInt("score", 0);
-            answerId = savedInstanceState.getInt("answer_id", 0);
+            questionIndex = savedInstanceState.getInt(PUT_QUESTION_INDEX_KEY, 0);
+            score = savedInstanceState.getInt(PUT_SCORE_KEY, 0);
+            answerId = savedInstanceState.getInt(PUT_ANSWER_ID_KEY, 0);
         }
 
         Bundle data = getIntent().getExtras();
-
         if (data != null) {
-            questionIndex = data.getInt("question_index", 0);
-            score = data.getInt("score", 0);
+            questionIndex = data.getInt(PUT_QUESTION_INDEX_KEY, 0);
+            score = data.getInt(PUT_SCORE_KEY, 0);
         }
 
 
@@ -53,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         endIntent = new Intent(MainActivity.this, EndActivity.class);
 
 
-        //        add questions
+//        add questions
         addQuestion(R.drawable.dog, R.string.first_question_text, R.string.first_question_hint,
                 R.string.first_question_answer_a, R.string.first_question_answer_b, R.string.first_question_answer_c, 0);
 
@@ -67,13 +71,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-        //        read and set saved data
-        Bundle data = getIntent().getExtras();
-
-        if (data != null) {
-            questionIndex = data.getInt("question_index", 0);
-        }
 
         setDataToViews(questions.get(questionIndex));
 
@@ -103,12 +100,14 @@ public class MainActivity extends AppCompatActivity {
 
         activityMainBinding.hintBtn.setOnClickListener(view -> {
 //            substrate 1 point for hint using
-            score--;
+            if (score > 0) {
+                score--;
+            }
 
 //            put data to hint activity
-            hintIntent.putExtra("hint_text_id", questions.get(questionIndex).getHintTextId());
-            hintIntent.putExtra("question_index", questionIndex);
-            hintIntent.putExtra("score", score);
+            hintIntent.putExtra(PUT_HINT_ID_KEY, questions.get(questionIndex).getHintTextId());
+            hintIntent.putExtra(PUT_QUESTION_INDEX_KEY, questionIndex);
+            hintIntent.putExtra(PUT_SCORE_KEY, score);
 
             startActivity(hintIntent);
         });
@@ -120,13 +119,13 @@ public class MainActivity extends AppCompatActivity {
 
 //        save data for read
 //        if user rotate the device
-        outState.putInt("question_index", questionIndex);
-        outState.putInt("score", score);
-        outState.putInt("answer_id", answerId);
+        outState.putInt(PUT_QUESTION_INDEX_KEY, questionIndex);
+        outState.putInt(PUT_SCORE_KEY, score);
+        outState.putInt(PUT_ANSWER_ID_KEY, answerId);
     }
 
     private void setDataToViews(Question q) {
-        //        set data to views
+//        set data to views
         activityMainBinding.imageView.setImageResource(q.getImageId());
 
         activityMainBinding.questionTextView.setText(q.getQuestionTextId());
