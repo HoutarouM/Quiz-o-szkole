@@ -12,6 +12,7 @@ public class HintActivity extends AppCompatActivity {
 
     private int hintTextId;
     private int questionIndex;
+    private int score;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,9 @@ public class HintActivity extends AppCompatActivity {
         Bundle data = getIntent().getExtras();
 
         if (data != null) {
-            hintTextId = data.getInt("hint_text_id");
-            questionIndex = data.getInt("question_index");
+            hintTextId = data.getInt("hint_text_id", 0);
+            questionIndex = data.getInt("question_index", 0);
+            score = data.getInt("score", 0);
         }
 
         activityHintBinding.hintText.setText(hintTextId);
@@ -42,6 +44,7 @@ public class HintActivity extends AppCompatActivity {
             Intent mainIntent = new Intent(HintActivity.this, MainActivity.class);
 
             mainIntent.putExtra("question_index", questionIndex);
+            mainIntent.putExtra("score", score);
 
             startActivity(mainIntent);
         });

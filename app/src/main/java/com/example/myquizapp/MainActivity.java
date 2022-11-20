@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Question> questions = new ArrayList<>();
 
-    private int questionIndex = 0;
-    private int score = 0;
-    private int answerId = 0;
+    private int questionIndex;
+    private int score;
+    private int answerId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +33,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(activityMainBinding.getRoot());
 
 
-//        get save data
+//        read and set saved data
         if (savedInstanceState != null) {
             questionIndex = savedInstanceState.getInt("question_index", 0);
             score = savedInstanceState.getInt("score", 0);
             answerId = savedInstanceState.getInt("answer_id", 0);
+        }
+
+        Bundle data = getIntent().getExtras();
+
+        if (data != null) {
+            questionIndex = data.getInt("question_index", 0);
+            score = data.getInt("score", 0);
         }
 
 
@@ -95,8 +102,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         activityMainBinding.hintBtn.setOnClickListener(view -> {
+//            substrate 1 point for hint using
+            score--;
+
+//            put data to hint activity
             hintIntent.putExtra("hint_text_id", questions.get(questionIndex).getHintTextId());
             hintIntent.putExtra("question_index", questionIndex);
+            hintIntent.putExtra("score", score);
 
             startActivity(hintIntent);
         });
@@ -106,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
+//        save data for read
+//        if user rotate the device
         outState.putInt("question_index", questionIndex);
         outState.putInt("score", score);
         outState.putInt("answer_id", answerId);
