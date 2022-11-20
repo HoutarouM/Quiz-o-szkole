@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
 //            change activity when quiz is end
             if (questionIndex == questions.size()) {
-                endIntent.putExtra("score", score);
+                endIntent.putExtra(PUT_SCORE_KEY, score);
 
                 startActivity(endIntent);
             } else {

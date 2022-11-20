@@ -34,7 +34,7 @@ public class EndActivity extends AppCompatActivity {
 
         Bundle data = getIntent().getExtras();
         if (data != null) {
-            score = data.getInt("score", 0);
+            score = data.getInt(PUT_SCORE_KEY, 0);
         }
 
 
