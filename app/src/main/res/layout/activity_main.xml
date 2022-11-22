@@ -29,27 +29,49 @@
 
     <RadioGroup
         android:id="@+id/radio_group"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/answer_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_text_view">
 
+
         <RadioButton
             android:id="@+id/first_radio_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="test"
+            android:textColor="@color/no_select_text"
+            android:textSize="24dp" />
 
         <RadioButton
             android:id="@+id/second_radio_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="test"
+            android:textColor="@color/no_select_text"
+            android:textSize="24dp" />
 
         <RadioButton
             android:id="@+id/third_radio_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="test"
+            android:textColor="@color/no_select_text"
+            android:textSize="24dp" />
 
     </RadioGroup>
 

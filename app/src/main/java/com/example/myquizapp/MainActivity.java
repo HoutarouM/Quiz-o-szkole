@@ -7,6 +7,7 @@ import static com.example.myquizapp.PutKeys.PUT_SCORE_KEY;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -73,9 +74,41 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         setDataToViews(questions.get(questionIndex));
+        
+
+//        buttons on click change background and text colors
+        activityMainBinding.firstRadioBtn.setOnClickListener(view -> {
+            clearButton(activityMainBinding.secondRadioBtn);
+            clearButton(activityMainBinding.thirdRadioBtn);
+
+            activityMainBinding.firstRadioBtn.setBackgroundColor(getResources().getColor(R.color.main_school_color));
+            activityMainBinding.firstRadioBtn.setTextColor(getResources().getColor(R.color.white));
+        });
+
+        activityMainBinding.secondRadioBtn.setOnClickListener(view -> {
+            clearButton(activityMainBinding.firstRadioBtn);
+            clearButton(activityMainBinding.thirdRadioBtn);
+
+            activityMainBinding.secondRadioBtn.setBackgroundColor(getResources().getColor(R.color.main_school_color));
+            activityMainBinding.secondRadioBtn.setTextColor(getResources().getColor(R.color.white));
+        });
+
+        activityMainBinding.thirdRadioBtn.setOnClickListener(view -> {
+            clearButton(activityMainBinding.firstRadioBtn);
+            clearButton(activityMainBinding.secondRadioBtn);
+
+            activityMainBinding.thirdRadioBtn.setBackgroundColor(getResources().getColor(R.color.main_school_color));
+            activityMainBinding.thirdRadioBtn.setTextColor(getResources().getColor(R.color.white));
+        });
+
 
 //        change question on click
         activityMainBinding.answerBtn.setOnClickListener(view -> {
+//            buttons to default
+            clearButton(activityMainBinding.firstRadioBtn);
+            clearButton(activityMainBinding.secondRadioBtn);
+            clearButton(activityMainBinding.thirdRadioBtn);
+
             answerId = getAnswerIdByButton(activityMainBinding.radioGroup.getCheckedRadioButtonId());
 
 //            increment score if answer is right
@@ -111,6 +144,11 @@ public class MainActivity extends AppCompatActivity {
 
             startActivity(hintIntent);
         });
+    }
+
+    private void clearButton(RadioButton btn) {
+        btn.setTextColor(getResources().getColor(R.color.no_select_text));
+        btn.setBackground(getResources().getDrawable(R.drawable.border));
     }
 
     @Override
