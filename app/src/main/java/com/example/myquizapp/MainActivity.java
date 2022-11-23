@@ -1,6 +1,7 @@
 package com.example.myquizapp;
 
 import static com.example.myquizapp.PutKeys.PUT_ANSWER_ID_KEY;
+import static com.example.myquizapp.PutKeys.PUT_CHECKED_BUTTON_KEY;
 import static com.example.myquizapp.PutKeys.PUT_HINT_ID_KEY;
 import static com.example.myquizapp.PutKeys.PUT_QUESTION_INDEX_KEY;
 import static com.example.myquizapp.PutKeys.PUT_SCORE_KEY;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private int questionIndex;
     private int score;
     private int answerId;
+    private int checkedBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +46,24 @@ public class MainActivity extends AppCompatActivity {
             questionIndex = savedInstanceState.getInt(PUT_QUESTION_INDEX_KEY, 0);
             score = savedInstanceState.getInt(PUT_SCORE_KEY, 0);
             answerId = savedInstanceState.getInt(PUT_ANSWER_ID_KEY, 0);
+            checkedBtn = savedInstanceState.getInt(PUT_CHECKED_BUTTON_KEY, 0);
         }
 
         Bundle data = getIntent().getExtras();
         if (data != null) {
             questionIndex = data.getInt(PUT_QUESTION_INDEX_KEY, 0);
             score = data.getInt(PUT_SCORE_KEY, 0);
+            checkedBtn = data.getInt(PUT_CHECKED_BUTTON_KEY, 0);
+        }
+
+        if (checkedBtn != 0) {
+            if (checkedBtn == 1) {
+                checkButton(activityMainBinding.firstRadioBtn);
+            } else if (checkedBtn == 2) {
+                checkButton(activityMainBinding.secondRadioBtn);
+            } else if (checkedBtn == 3) {
+                checkButton(activityMainBinding.thirdRadioBtn);
+            }
         }
 
 
@@ -74,37 +88,41 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         setDataToViews(questions.get(questionIndex));
-        
+
 
 //        buttons on click change background and text colors
         activityMainBinding.firstRadioBtn.setOnClickListener(view -> {
+            checkedBtn = 1;
+
             clearButton(activityMainBinding.secondRadioBtn);
             clearButton(activityMainBinding.thirdRadioBtn);
 
-            activityMainBinding.firstRadioBtn.setBackgroundColor(getResources().getColor(R.color.main_school_color));
-            activityMainBinding.firstRadioBtn.setTextColor(getResources().getColor(R.color.white));
+            checkButton(activityMainBinding.firstRadioBtn);
         });
 
         activityMainBinding.secondRadioBtn.setOnClickListener(view -> {
+            checkedBtn = 2;
+
             clearButton(activityMainBinding.firstRadioBtn);
             clearButton(activityMainBinding.thirdRadioBtn);
 
-            activityMainBinding.secondRadioBtn.setBackgroundColor(getResources().getColor(R.color.main_school_color));
-            activityMainBinding.secondRadioBtn.setTextColor(getResources().getColor(R.color.white));
+            checkButton(activityMainBinding.secondRadioBtn);
         });
 
         activityMainBinding.thirdRadioBtn.setOnClickListener(view -> {
+            checkedBtn = 3;
+
             clearButton(activityMainBinding.firstRadioBtn);
             clearButton(activityMainBinding.secondRadioBtn);
 
-            activityMainBinding.thirdRadioBtn.setBackgroundColor(getResources().getColor(R.color.main_school_color));
-            activityMainBinding.thirdRadioBtn.setTextColor(getResources().getColor(R.color.white));
+            checkButton(activityMainBinding.thirdRadioBtn);
         });
 
 
 //        change question on click
         activityMainBinding.answerBtn.setOnClickListener(view -> {
 //            buttons to default
+            checkedBtn = 0;
             clearButton(activityMainBinding.firstRadioBtn);
             clearButton(activityMainBinding.secondRadioBtn);
             clearButton(activityMainBinding.thirdRadioBtn);
@@ -133,23 +151,18 @@ public class MainActivity extends AppCompatActivity {
 
         activityMainBinding.hintBtn.setOnClickListener(view -> {
 //            substrate 1 point for hint using
-            if (score > 0) {
-                score--;
-            }
+            score--;
 
 //            put data to hint activity
             hintIntent.putExtra(PUT_HINT_ID_KEY, questions.get(questionIndex).getHintTextId());
             hintIntent.putExtra(PUT_QUESTION_INDEX_KEY, questionIndex);
             hintIntent.putExtra(PUT_SCORE_KEY, score);
+            hintIntent.putExtra(PUT_CHECKED_BUTTON_KEY, checkedBtn);
 
             startActivity(hintIntent);
         });
     }
 
-    private void clearButton(RadioButton btn) {
-        btn.setTextColor(getResources().getColor(R.color.no_select_text));
-        btn.setBackground(getResources().getDrawable(R.drawable.border));
-    }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
@@ -160,7 +173,9 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt(PUT_QUESTION_INDEX_KEY, questionIndex);
         outState.putInt(PUT_SCORE_KEY, score);
         outState.putInt(PUT_ANSWER_ID_KEY, answerId);
+        outState.putInt(PUT_CHECKED_BUTTON_KEY, checkedBtn);
     }
+
 
     private void setDataToViews(Question q) {
 //        set data to views
@@ -183,5 +198,15 @@ public class MainActivity extends AppCompatActivity {
         if (activityMainBinding.firstRadioBtn.getId() == buttonId) return 0;
         else if (activityMainBinding.secondRadioBtn.getId() == buttonId) return 1;
         else return 2;
+    }
+
+    private void clearButton(RadioButton btn) {
+        btn.setTextColor(getResources().getColor(R.color.no_select_text));
+        btn.setBackground(getResources().getDrawable(R.drawable.border));
+    }
+
+    private void checkButton(RadioButton btn) {
+        btn.setBackgroundColor(getResources().getColor(R.color.main_school_color));
+        btn.setTextColor(getResources().getColor(R.color.white));
     }
 }
