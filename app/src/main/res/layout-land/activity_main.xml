@@ -2,10 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     tools:context=".MainActivity">
 
     <ImageView
@@ -21,7 +19,7 @@
         android:id="@+id/question_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="26dp"
+        android:textSize="@dimen/text_size"
         app:layout_constraintBottom_toTopOf="@id/radio_group"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,27 +27,50 @@
 
     <RadioGroup
         android:id="@+id/radio_group"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@id/answer_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question_text_view">
 
+
         <RadioButton
             android:id="@+id/first_radio_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:textColor="@color/no_select_text"
+            android:textSize="@dimen/btn_text_size" />
 
         <RadioButton
             android:id="@+id/second_radio_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:textColor="@color/no_select_text"
+            android:textSize="@dimen/btn_text_size" />
 
         <RadioButton
             android:id="@+id/third_radio_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/border"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:textColor="@color/no_select_text"
+            android:textSize="@dimen/btn_text_size" />
 
     </RadioGroup>
 
