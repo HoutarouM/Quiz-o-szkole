@@ -1,24 +1,38 @@
 <resources>
-    <string name="app_name">MyQuizApp</string>
-    <string name="answer_button_text">Answer</string>
-    <string name="hint_button_text">Hint</string>
+    <string name="app_name">Test o ZS10</string>
+    <string name="answer_button_text">Odpowiedz</string>
+    <string name="hint_button_text">Podpowiedz</string>
 
     <string name="logo_content_desc">java_logo</string>
 
-    <string name="first_question_text">What language?</string>
-    <string name="first_question_hint">Google</string>
-    <string name="first_question_answer_a">Go</string>
-    <string name="first_question_answer_b">Rust</string>
-    <string name="first_question_answer_c">Java</string>
+    <string name="first_question_text">Kto jest patronem SZS10 w Zabrzu?</string>
+    <string name="first_question_hint">Jimienie zaczyna się na j.</string>
+    <string name="first_question_answer_a">Janusz Groszkowski</string>
+    <string name="first_question_answer_b">Elon Mask</string>
+    <string name="first_question_answer_c">Józef Piłsudski</string>
 
-    <string name="second_question_text">test</string>
-    <string name="second_question_hint">test</string>
-    <string name="second_question_answer_a">test</string>
-    <string name="second_question_answer_b">test</string>
-    <string name="second_question_answer_c">test</string>
+    <string name="second_question_text">Na ktorej ulicy znajduje się ZS10?</string>
+    <string name="second_question_hint">Polski kompozytor.</string>
+    <string name="second_question_answer_a">Fryderyka Chopina</string>
+    <string name="second_question_answer_b">ul Mickiewicza</string>
+    <string name="second_question_answer_c">ul Slowackiego</string>
 
-    <string name="return_button_text">Return</string>
-    <string name="restart_button_text">Restart</string>
-    <string name="congratulations_text">Congratulations</string>
-    <string name="start_button_text">Start</string>
+    <string name="third_question_text">Jaka to sala?</string>
+    <string name="third_question_hint">2 pietro.</string>
+    <string name="third_question_answer_a">Chemiczna</string>
+    <string name="third_question_answer_b">Fizyczna</string>
+    <string name="third_question_answer_c">Komputerowa</string>
+
+    <string name="fourth_question_text">Jaka to sala?</string>
+    <string name="fourth_question_hint">Parter.</string>
+    <string name="fourth_question_answer_a">Sala dla WF</string>
+    <string name="fourth_question_answer_b">Sala taneczna</string>
+    <string name="fourth_question_answer_c">Teatralna</string>
+
+    <string name="return_button_text">Wroc</string>
+    <string name="restart_button_text">Zacznij od nowa</string>
+    <string name="congratulations_text">Gratuluję</string>
+    <string name="start_button_text">Rozpocznij</string>
+    <string name="quiz_o_naszej_szkole">Quiz o naszej szkole</string>
+    <string name="instrukcja_uzywanie_podpowiedzi_minus_1_punkt">Instrukcja: uzywanie podpowiedzi minus 1 punkt</string>
 </resources>

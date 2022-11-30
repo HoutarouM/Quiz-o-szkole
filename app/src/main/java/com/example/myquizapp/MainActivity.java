@@ -73,14 +73,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 //        add questions
-        addQuestion(R.drawable.dog, R.string.first_question_text, R.string.first_question_hint,
+        addQuestion(R.drawable.janusz, R.string.first_question_text, R.string.first_question_hint,
                 R.string.first_question_answer_a, R.string.first_question_answer_b, R.string.first_question_answer_c, 0);
 
-        addQuestion(R.drawable.dog, R.string.second_question_text, R.string.second_question_hint,
+        addQuestion(R.drawable.mapa, R.string.second_question_text, R.string.second_question_hint,
                 R.string.second_question_answer_a, R.string.second_question_answer_b, R.string.second_question_answer_c, 0);
 
-        addQuestion(R.drawable.dog, R.string.first_question_text, R.string.first_question_hint,
-                R.string.first_question_answer_a, R.string.first_question_answer_b, R.string.first_question_answer_c, 0);
+        addQuestion(R.drawable.chemia, R.string.third_question_text, R.string.third_question_hint,
+                R.string.third_question_answer_a, R.string.third_question_answer_b, R.string.third_question_answer_c, 0);
+
+        addQuestion(R.drawable.wf_short, R.string.fourth_question_text, R.string.fourth_question_hint,
+                R.string.fourth_question_answer_a, R.string.fourth_question_answer_b, R.string.fourth_question_answer_c, 0);
     }
 
     @Override
