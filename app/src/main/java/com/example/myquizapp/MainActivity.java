@@ -42,6 +42,13 @@ public class MainActivity extends AppCompatActivity {
 
 
 //        read and set saved data
+        Bundle data = getIntent().getExtras();
+        if (data != null) {
+            questionIndex = data.getInt(PUT_QUESTION_INDEX_KEY, 0);
+            score = data.getInt(PUT_SCORE_KEY, 0);
+            checkedBtn = data.getInt(PUT_CHECKED_BUTTON_KEY, 0);
+        }
+
         if (savedInstanceState != null) {
             questionIndex = savedInstanceState.getInt(PUT_QUESTION_INDEX_KEY, 0);
             score = savedInstanceState.getInt(PUT_SCORE_KEY, 0);
@@ -49,12 +56,6 @@ public class MainActivity extends AppCompatActivity {
             checkedBtn = savedInstanceState.getInt(PUT_CHECKED_BUTTON_KEY, 0);
         }
 
-        Bundle data = getIntent().getExtras();
-        if (data != null) {
-            questionIndex = data.getInt(PUT_QUESTION_INDEX_KEY, 0);
-            score = data.getInt(PUT_SCORE_KEY, 0);
-            checkedBtn = data.getInt(PUT_CHECKED_BUTTON_KEY, 0);
-        }
 
         if (checkedBtn != 0) {
             if (checkedBtn == 1) {
@@ -79,11 +80,20 @@ public class MainActivity extends AppCompatActivity {
         addQuestion(R.drawable.mapa, R.string.second_question_text, R.string.second_question_hint,
                 R.string.second_question_answer_a, R.string.second_question_answer_b, R.string.second_question_answer_c, 0);
 
-        addQuestion(R.drawable.chemia, R.string.third_question_text, R.string.third_question_hint,
-                R.string.third_question_answer_a, R.string.third_question_answer_b, R.string.third_question_answer_c, 0);
+        addQuestion(R.drawable.schhol, R.string.third_question_text, R.string.third_question_hint,
+                R.string.third_question_answer_a, R.string.third_question_answer_b, R.string.third_question_answer_c, 1);
 
-        addQuestion(R.drawable.wf_short, R.string.fourth_question_text, R.string.fourth_question_hint,
-                R.string.fourth_question_answer_a, R.string.fourth_question_answer_b, R.string.fourth_question_answer_c, 0);
+        addQuestion(R.drawable.school_two, R.string.fourth_question_text, R.string.fourth_question_hint,
+                R.string.fourth_question_answer_a, R.string.fourth_question_answer_b, R.string.fourth_question_answer_c, 2);
+
+        addQuestion(R.drawable.schhol, R.string.fifth_question_text, R.string.fifth_question_hint,
+                R.string.fifth_question_answer_a, R.string.fifth_question_answer_b, R.string.fifth_question_answer_c, 1);
+
+        addQuestion(R.drawable.owl, R.string.sixth_question_text, R.string.sixth_question_hint,
+                R.string.sixth_question_answer_a, R.string.sixth_question_answer_b, R.string.sixth_question_answer_c, 0);
+
+        addQuestion(R.drawable.school_two, R.string.seventh_question_text, R.string.seventh_question_hint,
+                R.string.seventh_question_answer_a, R.string.seventh_question_answer_b, R.string.seventh_question_answer_c, 2);
     }
 
     @Override

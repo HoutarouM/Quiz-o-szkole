@@ -5,29 +5,47 @@
 
     <string name="logo_content_desc">java_logo</string>
 
-    <string name="first_question_text">Kto jest patronem SZS10 w Zabrzu?</string>
-    <string name="first_question_hint">Jimienie zaczyna się na j.</string>
+    <string name="first_question_text">Kto jest patronem ZS 10 w Zabrzu?</string>
+    <string name="first_question_hint">Jego imię zaczyna się na J.</string>
     <string name="first_question_answer_a">Janusz Groszkowski</string>
-    <string name="first_question_answer_b">Elon Mask</string>
+    <string name="first_question_answer_b">Elon Musk</string>
     <string name="first_question_answer_c">Józef Piłsudski</string>
 
     <string name="second_question_text">Na ktorej ulicy znajduje się ZS10?</string>
     <string name="second_question_hint">Polski kompozytor.</string>
-    <string name="second_question_answer_a">Fryderyka Chopina</string>
-    <string name="second_question_answer_b">ul Mickiewicza</string>
-    <string name="second_question_answer_c">ul Slowackiego</string>
+    <string name="second_question_answer_a">ul Fryderyka Chopina</string>
+    <string name="second_question_answer_b">ul Adama Mickiewicza</string>
+    <string name="second_question_answer_c">ul Juliusza Slowackiego</string>
 
-    <string name="third_question_text">Jaka to sala?</string>
-    <string name="third_question_hint">2 pietro.</string>
-    <string name="third_question_answer_a">Chemiczna</string>
-    <string name="third_question_answer_b">Fizyczna</string>
-    <string name="third_question_answer_c">Komputerowa</string>
+    <string name="third_question_text">W którym roku rozpoczęły się dzieje szkolnego gmachu?</string>
+    <string name="third_question_hint">Lata 20 XX wieku.</string>
+    <string name="third_question_answer_a">1930</string>
+    <string name="third_question_answer_b">1928</string>
+    <string name="third_question_answer_c">1940</string>
 
-    <string name="fourth_question_text">Jaka to sala?</string>
-    <string name="fourth_question_hint">Parter.</string>
-    <string name="fourth_question_answer_a">Sala dla WF</string>
-    <string name="fourth_question_answer_b">Sala taneczna</string>
-    <string name="fourth_question_answer_c">Teatralna</string>
+    <string name="fourth_question_text">Kiedy utworzono Zespół Szkół nr 10 im. prof. Janusza Groszkowskiego?</string>
+    <string name="fourth_question_hint">W marcu.</string>
+    <string name="fourth_question_answer_a">15 kwietnia 1997</string>
+    <string name="fourth_question_answer_b">20 maja 2000</string>
+    <string name="fourth_question_answer_c">10 marca 1997</string>
+
+    <string name="fifth_question_text">Ile szkół wchodzi w skład ZS10?</string>
+    <string name="fifth_question_hint">Szkoa postawowa, technikum i liceum.</string>
+    <string name="fifth_question_answer_a">2</string>
+    <string name="fifth_question_answer_b">3</string>
+    <string name="fifth_question_answer_c">5</string>
+
+    <string name="sixth_question_text">Kto był(a) pierwszym dyrektorem ZS10?</string>
+    <string name="sixth_question_hint">Pierwszym dyrektorem ZS10 była kobieta.</string>
+    <string name="sixth_question_answer_a">Ewa Wolnica</string>
+    <string name="sixth_question_answer_b">Mirosław Mendecki</string>
+    <string name="sixth_question_answer_c">Tomasz Grabski</string>
+
+    <string name="seventh_question_text">Kiedy Szkoła Podstawowa nr 27 została reaktywowana?</string>
+    <string name="seventh_question_hint">We wrześniu.</string>
+    <string name="seventh_question_answer_a">1 września 2017</string>
+    <string name="seventh_question_answer_b">7 października 2018</string>
+    <string name="seventh_question_answer_c">4 września 2017</string>
 
     <string name="return_button_text">Wroc</string>
     <string name="restart_button_text">Zacznij od nowa</string>
