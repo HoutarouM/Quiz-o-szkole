@@ -27,7 +27,7 @@
 
     <RadioGroup
         android:id="@+id/radio_group"
-        android:layout_width="0dp"
+        android:layout_width="0sp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/answer_btn"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
             android:id="@+id/first_radio_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="5sp"
             android:background="@drawable/border"
             android:button="@android:color/transparent"
             android:gravity="center"
@@ -50,7 +50,7 @@
             android:id="@+id/second_radio_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="5sp"
             android:background="@drawable/border"
             android:button="@android:color/transparent"
             android:gravity="center"
@@ -61,7 +61,7 @@
             android:id="@+id/third_radio_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="5sp"
             android:background="@drawable/border"
             android:button="@android:color/transparent"
             android:gravity="center"
@@ -72,10 +72,10 @@
 
     <Button
         android:id="@+id/answer_btn"
-        android:layout_width="0dp"
+        android:layout_width="0sp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16sp"
+        android:layout_marginEnd="16sp"
         android:text="@string/answer_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/hint_btn"
@@ -84,10 +84,10 @@
 
     <Button
         android:id="@+id/hint_btn"
-        android:layout_width="0dp"
+        android:layout_width="0sp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16sp"
+        android:layout_marginEnd="16sp"
         android:text="@string/hint_button_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
